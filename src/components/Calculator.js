@@ -11,7 +11,7 @@ const Calculator = () => {
   const initialVenues = [
     { 
       id: 1, 
-      name: 'Cannon Room',
+      name: <>Cannon Room</>,
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -21,7 +21,7 @@ const Calculator = () => {
     },
     { 
       id: 2, 
-      name: 'Cross & Main [WP]',
+      name: <>Cross & Main <span className="text-xs text-gray-500">[WP]</span></>,
       costs: {
         redesign: 3000,
         analytics: 625,
@@ -31,7 +31,7 @@ const Calculator = () => {
     },
     { 
       id: 3, 
-      name: 'Field House Catering [WP]',
+      name: <>Field House Catering <span className="text-xs text-gray-500">[WP]</span></>,
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -41,7 +41,7 @@ const Calculator = () => {
     },
     { 
       id: 4, 
-      name: 'Founders Hall',
+      name: <>Founders Hall</>,
       costs: {
         redesign: 2400,
         analytics: 625,
@@ -51,7 +51,7 @@ const Calculator = () => {
     },
     { 
       id: 5, 
-      name: 'The Daily Planet Cafe [WP]',
+      name: <>The Daily Planet Cafe <span className="text-xs text-gray-500">[WP]</span></>,
       costs: {
         redesign: 2400,
         analytics: 625,
@@ -61,7 +61,7 @@ const Calculator = () => {
     },
     { 
       id: 6, 
-      name: 'The Millbrook Manor [WP]',
+      name: <>The Millbrook Manor <span className="text-xs text-gray-500">[WP]</span></>,
       costs: {
         redesign: 2400,
         analytics: 625,
@@ -71,7 +71,7 @@ const Calculator = () => {
     },
     { 
       id: 7, 
-      name: 'The Revelry',
+      name: <>The Revelry</>,
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -81,7 +81,7 @@ const Calculator = () => {
     },
     { 
       id: 8, 
-      name: 'The Terrace at Cedar Hill',
+      name: <>The Terrace at Cedar Hill</>,
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -91,7 +91,7 @@ const Calculator = () => {
     },
     { 
       id: 9, 
-      name: 'Union Station Deli & Catering [WP]',
+      name: <>Union Station Deli & Catering <span className="text-xs text-gray-500">[WP]</span></>,
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -101,7 +101,7 @@ const Calculator = () => {
     },
     { 
       id: 10, 
-      name: 'The VanLandingham Estate',
+      name: <>The VanLandingham Estate</>,
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -111,7 +111,7 @@ const Calculator = () => {
     },
     { 
       id: 11, 
-      name: 'Best Impressions Caterers',
+      name: <>Best Impressions Caterers</>,
       costs: {
         redesign: 8400,
         analytics: 750,
@@ -204,7 +204,7 @@ const Calculator = () => {
                   {service.name}
                 </th>
               ))}
-              <th className="p-2 border text-left">Total</th>
+              <th className="p-2 border text-left min-w-[112px]">Total</th>
             </tr>
           </thead>
           <tbody>
@@ -228,7 +228,7 @@ const Calculator = () => {
                     </div>
                   </td>
                 ))}
-                <td className="p-2 border font-bold">
+                <td className="p-2 border font-bold min-w-[112px]">
                   ${calculateVenueTotal(venue).toLocaleString()}
                 </td>
               </tr>
@@ -236,7 +236,7 @@ const Calculator = () => {
             <tr className="bg-gray-100 font-bold">
               <td className="p-2 border">Grand Total</td>
               <td colSpan={initialServices.length} className="p-2 border"></td>
-              <td className="p-2 border">${calculateGrandTotal().toLocaleString()}</td>
+              <td className="p-2 border min-w-[112px]">${calculateGrandTotal().toLocaleString()}</td>
             </tr>
           </tbody>
         </table>
