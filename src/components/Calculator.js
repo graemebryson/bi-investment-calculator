@@ -21,7 +21,7 @@ const Calculator = () => {
     },
     { 
       id: 2, 
-      name: 'Cross & Main',
+      name: 'Cross & Main [WP]',
       costs: {
         redesign: 3000,
         analytics: 625,
@@ -31,7 +31,7 @@ const Calculator = () => {
     },
     { 
       id: 3, 
-      name: 'Field House Catering',
+      name: 'Field House Catering [WP]',
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -51,7 +51,7 @@ const Calculator = () => {
     },
     { 
       id: 5, 
-      name: 'The Daily Planet Cafe',
+      name: 'The Daily Planet Cafe [WP]',
       costs: {
         redesign: 2400,
         analytics: 625,
@@ -61,7 +61,7 @@ const Calculator = () => {
     },
     { 
       id: 6, 
-      name: 'The Millbrook Manor',
+      name: 'The Millbrook Manor [WP]',
       costs: {
         redesign: 2400,
         analytics: 625,
@@ -91,7 +91,7 @@ const Calculator = () => {
     },
     { 
       id: 9, 
-      name: 'Union Station Deli & Catering',
+      name: 'Union Station Deli & Catering [WP]',
       costs: {
         redesign: 1800,
         analytics: 625,
