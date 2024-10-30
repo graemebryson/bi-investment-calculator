@@ -11,7 +11,7 @@ function App() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-sm uppercase tracking-wider font-bold mb-2">Investment Calculator</h2>
-          <h1 className="text-2xl font-bold">Best Impressions</h1>
+          <h1 className="text-2xl font-bold"> Best Impressions </h1>
         </div>
         <Calculator />
       </div>
