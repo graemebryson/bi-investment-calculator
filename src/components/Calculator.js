@@ -126,7 +126,7 @@ const Calculator = () => {
       ...acc,
       [venue.id]: initialServices.reduce((sAcc, service) => ({
         ...sAcc,
-        [service.key]: true
+        [service.key]: service.key !== 'content'
       }), {})
     }), {})
   );
