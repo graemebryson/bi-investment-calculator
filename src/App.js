@@ -5,7 +5,10 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-2xl font-bold mb-8 text-center">Website Services Cost Calculator</h1>
+        <div className="text-center mb-8">
+          <h2 className="text-sm uppercase tracking-wider font-bold mb-2">Investment Calculator</h2>
+          <h1 className="text-2xl font-bold">Best Impressions</h1>
+        </div>
         <Calculator />
       </div>
     </div>
