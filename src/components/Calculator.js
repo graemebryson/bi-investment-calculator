@@ -12,7 +12,6 @@ const Calculator = () => {
     { 
       id: 1, 
       name: 'Cannon Room',
-      size: 'Small',
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -23,7 +22,6 @@ const Calculator = () => {
     { 
       id: 2, 
       name: 'Cross & Main',
-      size: 'Large',
       costs: {
         redesign: 3000,
         analytics: 625,
@@ -34,7 +32,6 @@ const Calculator = () => {
     { 
       id: 3, 
       name: 'Field House Catering',
-      size: 'Small',
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -45,7 +42,6 @@ const Calculator = () => {
     { 
       id: 4, 
       name: 'Founders Hall',
-      size: 'Large',
       costs: {
         redesign: 2400,
         analytics: 625,
@@ -56,7 +52,6 @@ const Calculator = () => {
     { 
       id: 5, 
       name: 'The Daily Planet Cafe',
-      size: 'Large',
       costs: {
         redesign: 2400,
         analytics: 625,
@@ -67,7 +62,6 @@ const Calculator = () => {
     { 
       id: 6, 
       name: 'The Millbrook Manor',
-      size: 'Large',
       costs: {
         redesign: 2400,
         analytics: 625,
@@ -78,7 +72,6 @@ const Calculator = () => {
     { 
       id: 7, 
       name: 'The Revelry',
-      size: 'Small',
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -89,7 +82,6 @@ const Calculator = () => {
     { 
       id: 8, 
       name: 'The Terrace at Cedar Hill',
-      size: 'Small',
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -100,7 +92,6 @@ const Calculator = () => {
     { 
       id: 9, 
       name: 'Union Station Deli & Catering',
-      size: 'Small',
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -111,7 +102,6 @@ const Calculator = () => {
     { 
       id: 10, 
       name: 'The VanLandingham Estate',
-      size: 'Small',
       costs: {
         redesign: 1800,
         analytics: 625,
@@ -122,7 +112,6 @@ const Calculator = () => {
     { 
       id: 11, 
       name: 'Best Impressions Caterers',
-      size: 'Large',
       costs: {
         redesign: 8400,
         analytics: 750,
@@ -137,7 +126,7 @@ const Calculator = () => {
       ...acc,
       [venue.id]: initialServices.reduce((sAcc, service) => ({
         ...sAcc,
-        [service.key]: false
+        [service.key]: true
       }), {})
     }), {})
   );
@@ -164,14 +153,52 @@ const Calculator = () => {
     }));
   };
 
+  const selectAll = () => {
+    setSelectedServices(
+      initialVenues.reduce((acc, venue) => ({
+        ...acc,
+        [venue.id]: initialServices.reduce((sAcc, service) => ({
+          ...sAcc,
+          [service.key]: true
+        }), {})
+      }), {})
+    );
+  };
+
+  const deselectAll = () => {
+    setSelectedServices(
+      initialVenues.reduce((acc, venue) => ({
+        ...acc,
+        [venue.id]: initialServices.reduce((sAcc, service) => ({
+          ...sAcc,
+          [service.key]: false
+        }), {})
+      }), {})
+    );
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="flex justify-end mb-4 gap-4">
+        <button
+          onClick={selectAll}
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+        >
+          Select All
+        </button>
+        <button
+          onClick={deselectAll}
+          className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
+        >
+          Deselect All
+        </button>
+      </div>
+      
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-gray-100">
               <th className="p-2 border text-left">Venue</th>
-              <th className="p-2 border text-left">Size</th>
               {initialServices.map(service => (
                 <th key={service.id} className="p-2 border text-left">
                   {service.name}
@@ -184,7 +211,6 @@ const Calculator = () => {
             {initialVenues.map(venue => (
               <tr key={venue.id} className="hover:bg-gray-50">
                 <td className="p-2 border font-medium">{venue.name}</td>
-                <td className="p-2 border">{venue.size}</td>
                 {initialServices.map(service => (
                   <td key={service.id} className="p-2 border">
                     <div className="flex items-center justify-between">
@@ -209,7 +235,7 @@ const Calculator = () => {
             ))}
             <tr className="bg-gray-100 font-bold">
               <td className="p-2 border">Grand Total</td>
-              <td colSpan={initialServices.length + 1} className="p-2 border"></td>
+              <td colSpan={initialServices.length} className="p-2 border"></td>
               <td className="p-2 border">${calculateGrandTotal().toLocaleString()}</td>
             </tr>
           </tbody>
